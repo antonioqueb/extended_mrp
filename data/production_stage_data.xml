@@ -5,66 +5,35 @@
             <field name="name">Octágono</field>
             <field name="sequence">10</field>
             <field name="workcenter_id" ref="workcenter_octagon"/>
+            <field name="is_intermediate_stock">True</field>
         </record>
 
         <record id="etapa_produccion_corte" model="mrp.production.stage">
             <field name="name">Corte</field>
             <field name="sequence">20</field>
             <field name="workcenter_id" ref="workcenter_corte"/>
+            <field name="is_intermediate_stock">True</field>
         </record>
 
         <record id="etapa_produccion_pegado" model="mrp.production.stage">
             <field name="name">Pegado</field>
             <field name="sequence">30</field>
             <field name="workcenter_id" ref="workcenter_pegado"/>
+            <field name="is_intermediate_stock">True</field>
         </record>
 
         <record id="etapa_produccion_laminado" model="mrp.production.stage">
             <field name="name">Laminado</field>
             <field name="sequence">40</field>
             <field name="workcenter_id" ref="workcenter_laminado"/>
+            <field name="is_intermediate_stock">False</field>
         </record>
 
         <record id="etapa_produccion_remanejo" model="mrp.production.stage">
             <field name="name">Remanejo</field>
             <field name="sequence">50</field>
             <field name="workcenter_id" ref="workcenter_remanejo"/>
-        </record>
-
-        <!-- Definición de los centros de trabajo -->
-        <record id="workcenter_octagon" model="mrp.workcenter">
-            <field name="name">Centro de Trabajo Octágono</field>
-            <field name="resource_calendar_id" ref="resource.resource_calendar_std"/>
-            <field name="time_efficiency">100</field>
-            <field name="code">OCT</field>
-        </record>
-
-        <record id="workcenter_corte" model="mrp.workcenter">
-            <field name="name">Centro de Trabajo Corte (Guillotina)</field>
-            <field name="resource_calendar_id" ref="resource.resource_calendar_std"/>
-            <field name="time_efficiency">100</field>
-            <field name="code">COR</field>
-        </record>
-
-        <record id="workcenter_pegado" model="mrp.workcenter">
-            <field name="name">Centro de Trabajo Pegado</field>
-            <field name="resource_calendar_id" ref="resource.resource_calendar_std"/>
-            <field name="time_efficiency">100</field>
-            <field name="code">PEG</field>
-        </record>
-
-        <record id="workcenter_laminado" model="mrp.workcenter">
-            <field name="name">Centro de Trabajo Laminado</field>
-            <field name="resource_calendar_id" ref="resource.resource_calendar_std"/>
-            <field name="time_efficiency">100</field>
-            <field name="code">LAM</field>
-        </record>
-
-        <record id="workcenter_remanejo" model="mrp.workcenter">
-            <field name="name">Centro de Trabajo Remanejo</field>
-            <field name="resource_calendar_id" ref="resource.resource_calendar_std"/>
-            <field name="time_efficiency">100</field>
-            <field name="code">REM</field>
+            <field name="is_intermediate_stock">False</field>
         </record>
     </data>
 </odoo>
