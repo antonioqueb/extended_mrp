@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_extended_mrp_production_report_pivot" model="ir.ui.view">
+        <field name="name">report.extended_mrp_production.pivot</field>
+        <field name="model">report.extended_mrp_production</field>
+        <field name="arch" type="xml">
+            <pivot string="Extended MRP Production Analysis" disable_linking="True">
+                <field name="stage_id" type="row"/>
+                <field name="quantity" type="measure"/>
+                <field name="octagon_runs" type="measure"/>
+                <field name="cuts_per_shift" type="measure"/>
+                <field name="glued_reticles" type="measure"/>
+                <field name="linear_meters" type="measure"/>
+                <field name="finished_pallets" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_extended_mrp_production_report_graph" model="ir.ui.view">
+        <field name="name">report.extended_mrp_production.graph</field>
+        <field name="model">report.extended_mrp_production</field>
+        <field name="arch" type="xml">
+            <graph string="Extended MRP Production Analysis">
+                <field name="stage_id"/>
+                <field name="quantity" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_extended_mrp_production_report" model="ir.actions.act_window">
+        <field name="name">Extended MRP Production Analysis</field>
+        <field name="res_model">report.extended_mrp_production</field>
+        <field name="view_mode">pivot,graph</field>
+    </record>
+
+    <menuitem id="menu_extended_mrp_production_report"
+              name="Extended Production Analysis"
+              parent="mrp.menu_mrp_reporting"
+              action="action_extended_mrp_production_report"
+              sequence="20"/>
+</odoo>

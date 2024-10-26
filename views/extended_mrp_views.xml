@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="extended_mrp_production_form_view" model="ir.ui.view">
+        <field name="name">mrp.production.extended.form</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bom_id']" position="after">
+                <field name="stage_id"/>
+            </xpath>
+            <notebook position="inside">
+                <page string="Stage Metrics">
+                    <group>
+                        <field name="octagon_runs"/>
+                        <field name="cuts_per_shift"/>
+                        <field name="glued_reticles"/>
+                        <field name="linear_meters"/>
+                        <field name="finished_pallets"/>
+                    </group>
+                </page>
+            </notebook>
+            <button name="button_mark_done" position="before">
+                <button name="action_next_stage" string="Next Stage" type="object" class="oe_highlight"/>
+            </button>
+        </field>
+    </record>
+
+    <record id="extended_mrp_production_tree_view" model="ir.ui.view">
+        <field name="name">mrp.production.extended.tree</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <field name="stage_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>
