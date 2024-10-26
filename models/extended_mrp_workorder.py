@@ -6,7 +6,7 @@ class ExtendedMrpWorkorder(models.Model):
     _inherit = 'mrp.workorder'
 
     stage_id = fields.Many2one('mrp.production.stage', related='production_id.stage_id', store=True)
-    stage_specific_data = fields.Text(string='Stage Specific Data')
+    stage_specific_data = fields.Text(string='Datos Específicos de la Etapa')
 
     @api.model
     def create(self, vals):
@@ -17,7 +17,7 @@ class ExtendedMrpWorkorder(models.Model):
 
     def button_start(self):
         res = super(ExtendedMrpWorkorder, self).button_start()
-        if self.stage_id.name in ['Lamination', 'Rehandling']:
+        if self.stage_id.name in ['Laminado', 'Remanejo']:
             return self.env['quick.change.wizard'].create({
                 'workorder_id': self.id,
             }).action_quick_change()

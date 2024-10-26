@@ -6,12 +6,12 @@ from odoo.exceptions import UserError
 class ExtendedMrpProduction(models.Model):
     _inherit = 'mrp.production'
 
-    stage_id = fields.Many2one('mrp.production.stage', string='Production Stage')
-    octagon_runs = fields.Integer(string='Octagon Runs')
-    cuts_per_shift = fields.Integer(string='Cuts per Shift')
-    glued_reticles = fields.Integer(string='Glued Reticles')
-    linear_meters = fields.Float(string='Linear Meters')
-    finished_pallets = fields.Integer(string='Finished Pallets')
+    stage_id = fields.Many2one('mrp.production.stage', string='Etapa de Producción')
+    octagon_runs = fields.Integer(string='Corridas de Octágono')
+    cuts_per_shift = fields.Integer(string='Cortes por Turno')
+    glued_reticles = fields.Integer(string='Retículas Pegadas')
+    linear_meters = fields.Float(string='Metros Lineales')
+    finished_pallets = fields.Integer(string='Tarimas Terminadas')
 
     @api.model
     def create(self, vals):
@@ -24,7 +24,7 @@ class ExtendedMrpProduction(models.Model):
     def action_confirm(self):
         for production in self:
             if not production.stage_id:
-                raise UserError(_("Please set a production stage before confirming."))
+                raise UserError(_("Por favor, establezca una etapa de producción antes de confirmar."))
         return super(ExtendedMrpProduction, self).action_confirm()
 
     def action_next_stage(self):
@@ -35,7 +35,7 @@ class ExtendedMrpProduction(models.Model):
             if next_stage:
                 production.write({'stage_id': next_stage.id})
             else:
-                raise UserError(_("This is the final stage of production."))
+                raise UserError(_("Esta es la etapa final de producción."))
 
     def _generate_moves(self):
         moves = super(ExtendedMrpProduction, self)._generate_moves()
