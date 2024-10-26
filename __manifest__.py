@@ -17,9 +17,11 @@
         'views/extended_mrp_views.xml',
         'views/production_stage_views.xml',
         'views/product_views.xml',
+
         # 'reports/extended_mrp_report_views.xml',  # Comentamos o eliminamos esta línea
         'wizards/quick_change_wizard_view.xml',
         'data/production_stage_data.xml',
+        'data/workcenters_data.xml',
     ],
     'demo': [],
     'installable': True,

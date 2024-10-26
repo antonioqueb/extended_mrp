@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="workcenter_octagon" model="mrp.workcenter">
+            <field name="name">Centro de Trabajo Octágono</field>
+            <field name="resource_calendar_id" ref="resource.resource_calendar_std"/>
+            <field name="capacity">1</field>
+            <field name="time_efficiency">100</field>
+            <field name="code">OCT</field>
+        </record>
+
+        <record id="workcenter_corte" model="mrp.workcenter">
+            <field name="name">Centro de Trabajo Corte (Guillotina)</field>
+            <field name="resource_calendar_id" ref="resource.resource_calendar_std"/>
+            <field name="capacity">1</field>
+            <field name="time_efficiency">100</field>
+            <field name="code">COR</field>
+        </record>
+
+        <record id="workcenter_pegado" model="mrp.workcenter">
+            <field name="name">Centro de Trabajo Pegado</field>
+            <field name="resource_calendar_id" ref="resource.resource_calendar_std"/>
+            <field name="capacity">1</field>
+            <field name="time_efficiency">100</field>
+            <field name="code">PEG</field>
+        </record>
+
+        <record id="workcenter_laminado" model="mrp.workcenter">
+            <field name="name">Centro de Trabajo Laminado</field>
+            <field name="resource_calendar_id" ref="resource.resource_calendar_std"/>
+            <field name="capacity">1</field>
+            <field name="time_efficiency">100</field>
+            <field name="code">LAM</field>
+        </record>
+
+        <record id="workcenter_remanejo" model="mrp.workcenter">
+            <field name="name">Centro de Trabajo Remanejo</field>
+            <field name="resource_calendar_id" ref="resource.resource_calendar_std"/>
+            <field name="capacity">1</field>
+            <field name="time_efficiency">100</field>
+            <field name="code">REM</field>
+        </record>
+    </data>
+</odoo>
