@@ -11,7 +11,7 @@
     'category': 'Manufacturing',
     'author': 'Your Company',
     'website': 'https://www.yourcompany.com',
-    'depends': ['mrp', 'stock', 'quality'],
+    'depends': ['mrp', 'stock'],
     'data': [
         'security/ir.model.access.csv',
         'views/extended_mrp_views.xml',
