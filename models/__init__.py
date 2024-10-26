@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from . import extended_mrp_production
 from . import mrp_production_stage
 from . import extended_mrp_workorder
