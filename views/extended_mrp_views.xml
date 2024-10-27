@@ -35,13 +35,18 @@
     </record>
 
     <record id="extended_mrp_production_tree_view" model="ir.ui.view">
-        <field name="name">mrp.production.extended.tree</field>
-        <field name="model">mrp.production</field>
-        <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
-        <field name="arch" type="xml">
-            <field name="state" position="before">
-                <field name="stage_id"/>
-            </field>
+    <field name="name">mrp.production.extended.tree</field>
+    <field name="model">mrp.production</field>
+    <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
+    <field name="arch" type="xml">
+        <field name="state" position="before">
+            <field name="stage_id" widget="badge" 
+                decoration-info="stage_id.name == 'Octágono'"
+                decoration-warning="stage_id.name == 'Corte'"
+                decoration-danger="stage_id.name == 'Pegado'"
+                decoration-success="stage_id.name == 'Laminado'"
+                decoration-primary="stage_id.name == 'Remanejo'"/>
         </field>
-    </record>
+    </field>
+</record>
 </odoo>
