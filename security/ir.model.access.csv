@@ -4,3 +4,7 @@ access_mrp_production_stage_manager,mrp.production.stage.manager,model_mrp_produ
 access_quick_change_wizard_user,quick.change.wizard.user,model_quick_change_wizard,mrp.group_mrp_user,1,1,1,0
 access_mrp_production_stage_history_user,mrp.production.stage.history.user,model_mrp_production_stage_history,mrp.group_mrp_user,1,1,1,0
 access_mrp_production_stage_history_manager,mrp.production.stage.history.manager,model_mrp_production_stage_history,mrp.group_mrp_manager,1,1,1,1
+access_mrp_stage_data_field_user,mrp.stage.data.field.user,model_mrp_stage_data_field,mrp.group_mrp_user,1,0,0,0
+access_mrp_stage_data_field_manager,mrp.stage.data.field.manager,model_mrp_stage_data_field,mrp.group_mrp_manager,1,1,1,1
+access_mrp_production_stage_data_user,mrp.production.stage.data.user,model_mrp_production_stage_data,mrp.group_mrp_user,1,1,1,0
+access_mrp_production_stage_data_manager,mrp.production.stage.data.manager,model_mrp_production_stage_data,mrp.group_mrp_manager,1,1,1,1

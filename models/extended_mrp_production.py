@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# File: models/extended_mrp_production.py
 
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
@@ -8,6 +8,9 @@ class ExtendedMrpProduction(models.Model):
 
     stage_id = fields.Many2one('mrp.production.stage', string='Etapa de Producción', tracking=True)
     stage_history_ids = fields.One2many('mrp.production.stage.history', 'production_id', string='Historial de Etapas')
+    stage_data_ids = fields.One2many('mrp.production.stage.data', 'production_id', string='Datos de Etapa')
+
+    # Existing fields
     octagon_runs = fields.Integer(string='Corridas de Octágono')
     cuts_per_shift = fields.Integer(string='Cortes por Turno')
     glued_reticles = fields.Integer(string='Retículas Pegadas')
@@ -56,6 +59,18 @@ class ExtendedMrpProduction(models.Model):
                 production.write({'stage_id': next_stage.id})
             else:
                 raise UserError(_("Esta es la etapa final de producción."))
+
+    @api.onchange('stage_id')
+    def _onchange_stage_id(self):
+        if self.stage_id:
+            required_fields = self.stage_id.required_data_ids
+            existing_data = self.stage_data_ids.filtered(lambda r: r.stage_id == self.stage_id)
+            for field in required_fields:
+                if field not in existing_data.mapped('field_id'):
+                    self.stage_data_ids = [(0, 0, {
+                        'stage_id': self.stage_id.id,
+                        'field_id': field.id,
+                    })]
 
     def _generate_moves(self):
         moves = super(ExtendedMrpProduction, self)._generate_moves()
