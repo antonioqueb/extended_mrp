@@ -29,7 +29,7 @@
                 </page>
             </notebook>
             <button name="button_mark_done" position="before">
-                <button name="action_next_stage" string="Next Stage" type="object" class="oe_highlight"/>
+                <button name="action_next_stage" string="Siguiente Etapa" type="object" class="oe_highlight"/>
             </button>
         </field>
     </record>
