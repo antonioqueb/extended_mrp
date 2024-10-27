@@ -4,7 +4,7 @@
         <field name="name">mrp.production.stage.tree</field>
         <field name="model">mrp.production.stage</field>
         <field name="arch" type="xml">
-            <tree string="Etapas de producción">
+            <tree>
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="workcenter_id"/>
@@ -17,29 +17,35 @@
         <field name="name">mrp.production.stage.form</field>
         <field name="model">mrp.production.stage</field>
         <field name="arch" type="xml">
-            <form string="Production Stage">
+            <form>
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="code"/>
                         <field name="sequence"/>
                         <field name="workcenter_id"/>
                         <field name="is_intermediate_stock"/>
-                        <field name="description"/>
+                        <field name="next_stage_id"/>
                     </group>
+                    <notebook>
+                        <page string="Campos de Datos Requeridos">
+                            <field name="required_data_ids"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
     <record id="action_production_stage" model="ir.actions.act_window">
-        <field name="name">Etapas de producción</field>
+        <field name="name">Etapas de Producción</field>
         <field name="res_model">mrp.production.stage</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="menu_production_stage"
-              name="Etapas de producción"
-              parent="mrp.menu_mrp_configuration"
+              name="Etapas de Producción"
               action="action_production_stage"
+              parent="mrp.menu_mrp_configuration"
               sequence="30"/>
 </odoo>

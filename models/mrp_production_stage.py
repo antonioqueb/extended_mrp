@@ -10,9 +10,10 @@ class MrpProductionStage(models.Model):
     name = fields.Char(string='Nombre de Etapa', required=True)
     sequence = fields.Integer(string='Secuencia', default=10)
     code = fields.Char(string='Código de Etapa', required=True)
-    workcenter_ids = fields.Many2many('mrp.workcenter', string='Centros de Trabajo')
+    workcenter_id = fields.Many2one('mrp.workcenter', string='Centro de Trabajo')  # Changed from Many2many to Many2one
     required_data_ids = fields.Many2many('mrp.stage.data.field', string='Campos de Datos Requeridos')
     next_stage_id = fields.Many2one('mrp.production.stage', string='Siguiente Etapa')
+    is_intermediate_stock = fields.Boolean(string='Es Stock Intermedio', default=False)
 
     @api.model
     def create(self, vals):
@@ -20,18 +21,4 @@ class MrpProductionStage(models.Model):
             vals['sequence'] = self.search([], order='sequence desc', limit=1).sequence + 1
         return super(MrpProductionStage, self).create(vals)
 
-class MrpStageDataField(models.Model):
-    _name = 'mrp.stage.data.field'
-    _description = 'Campo de Datos de Etapa'
-
-    name = fields.Char(string='Nombre del Campo', required=True)
-    field_type = fields.Selection([
-        ('char', 'Texto'),
-        ('integer', 'Entero'),
-        ('float', 'Decimal'),
-        ('boolean', 'Booleano'),
-        ('date', 'Fecha'),
-        ('datetime', 'Fecha y Hora')
-    ], string='Tipo de Campo', required=True)
-    is_required = fields.Boolean(string='Requerido')
-    stage_id = fields.Many2one('mrp.production.stage', string='Etapa')
+# ... rest of the file remains the same
