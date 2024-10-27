@@ -19,18 +19,21 @@ class MrpProductionStageData(models.Model):
     @api.depends('field_id.field_type', 'value_char', 'value_integer', 'value_float', 'value_boolean', 'value_date', 'value_datetime')
     def _compute_value(self):
         for record in self:
-            if record.field_id.field_type == 'char':
+            field_type = record.field_id.field_type
+            if field_type == 'char':
                 record.value = record.value_char
-            elif record.field_id.field_type == 'integer':
+            elif field_type == 'integer':
                 record.value = record.value_integer
-            elif record.field_id.field_type == 'float':
+            elif field_type == 'float':
                 record.value = record.value_float
-            elif record.field_id.field_type == 'boolean':
+            elif field_type == 'boolean':
                 record.value = record.value_boolean
-            elif record.field_id.field_type == 'date':
+            elif field_type == 'date':
                 record.value = record.value_date
-            elif record.field_id.field_type == 'datetime':
+            elif field_type == 'datetime':
                 record.value = record.value_datetime
+            else:
+                record.value = False
 
     value = fields.Char(string='Valor', compute='_compute_value', store=True)
 
