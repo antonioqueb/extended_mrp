@@ -40,15 +40,8 @@
     <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
     <field name="arch" type="xml">
         <field name="state" position="before">
-            <field name="stage_id" widget="badge" decoration-bf="1" options="{
-                'classes': {
-                    'Octágono': 'text-bg-info',
-                    'Corte': 'text-bg-warning',
-                    'Pegado': 'text-bg-danger',
-                    'Laminado': 'text-bg-success',
-                    'Remanejo': 'text-bg-primary'
-                }
-            }"/>
+            <field name="stage_id" widget="badge" 
+                />
         </field>
     </field>
 </record>
