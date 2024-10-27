@@ -9,8 +9,8 @@
         Laminado y Remanejo.
     """,
     'category': 'Manufacturing',
-    'author': 'Tu Empresa',
-    'website': 'https://www.tuempresa.com',
+    'author': 'ALPHAQUEB CONSULTING SAS',
+    'website': 'https://alphaqueb.com',
     'depends': ['mrp', 'stock'],
     'data': [
         'security/ir.model.access.csv',
