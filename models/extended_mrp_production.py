@@ -1,5 +1,4 @@
 # File: models/extended_mrp_production.py
-# models/extended_mrp_production.py
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 
@@ -20,9 +19,9 @@ class ExtendedMrpProduction(models.Model):
     @api.model
     def create(self, vals):
         if 'stage_id' not in vals:
-            first_stage = self.env['mrp.production.stage'].search([('name', '=', 'Octágono')], limit=1)
-            if first_stage:
-                vals['stage_id'] = first_stage.id
+            octagon_stage = self.env['mrp.production.stage'].search([('name', '=', 'Octágono')], limit=1)
+            if octagon_stage:
+                vals['stage_id'] = octagon_stage.id
             else:
                 raise UserError(_("No se encontró la etapa 'Octágono'. Por favor, asegúrese de que está configurada."))
         
