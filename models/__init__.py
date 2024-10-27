@@ -6,3 +6,4 @@ from . import extended_stock_move
 from . import extended_mrp_workcenter
 from . import mrp_production_stage_history
 from . import mrp_production_stage_data
+from . import mrp_stage_data_field
