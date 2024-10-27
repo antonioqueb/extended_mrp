@@ -4,7 +4,7 @@
         <field name="name">mrp.production.stage.tree</field>
         <field name="model">mrp.production.stage</field>
         <field name="arch" type="xml">
-            <tree string="Production Stages">
+            <tree string="Etapas de producción">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="workcenter_id"/>
@@ -32,13 +32,13 @@
     </record>
 
     <record id="action_production_stage" model="ir.actions.act_window">
-        <field name="name">Production Stages</field>
+        <field name="name">Etapas de producción</field>
         <field name="res_model">mrp.production.stage</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="menu_production_stage"
-              name="Production Stages"
+              name="Etapas de producción"
               parent="mrp.menu_mrp_configuration"
               action="action_production_stage"
               sequence="30"/>
