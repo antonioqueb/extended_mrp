@@ -9,7 +9,7 @@
                 <field name="stage_id" options="{'no_create': True, 'no_open': True}"/>
             </xpath>
             <notebook position="inside">
-                <page string="Stage Metrics">
+                <page string="Métricas de etapa">
                     <group>
                         <field name="octagon_runs"/>
                         <field name="cuts_per_shift"/>
