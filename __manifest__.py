@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# __manifest__.py
 {
     'name': 'Extended MRP',
     'version': '1.0',

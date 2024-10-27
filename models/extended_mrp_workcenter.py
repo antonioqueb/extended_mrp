@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# models/extended_mrp_workcenter.py
 from odoo import models, fields
 
 class ExtendedMrpWorkcenter(models.Model):

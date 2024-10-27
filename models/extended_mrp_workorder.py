@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# models/extended_mrp_workorder.py
 from odoo import models, fields, api
 
 class ExtendedMrpWorkorder(models.Model):

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# models/extended_product.py
 from odoo import models, fields, api
 
 class ExtendedProductTemplate(models.Model):

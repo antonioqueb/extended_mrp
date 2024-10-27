@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# models/extended_stock_move.py
 from odoo import models, fields
 
 class ExtendedStockMove(models.Model):

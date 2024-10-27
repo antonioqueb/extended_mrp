@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# wizards/quick_change_wizard.py
 from odoo import models, fields, api
 
 class QuickChangeWizard(models.TransientModel):
